@@ -1,0 +1,55 @@
+---
+interface Props {
+  projects: any;
+}
+
+const { projects } = Astro.props;
+const items = projects?.items || [];
+---
+
+<section class="projects" id="proyectos">
+  <canvas class="vortex" data-variant="streams" data-palette="26,26,200|108,108,245" aria-hidden="true"></canvas>
+  <div class="container">
+    <header class="projects__head reveal">
+      {projects?.eyebrow && <p class="section__eyebrow">{projects.eyebrow}</p>}
+      {projects?.title && <h2 class="section__title">{projects.title}</h2>}
+    </header>
+
+    <ol class="projects__grid">
+      {items.map((item: any) => (
+        <li class="project reveal">
+          <span class="mono project__sector">{item.sector || 'Proyecto'}</span>
+          <div class="project__rows">
+            <div class="project__row">
+              <span class="mono project__rowlabel">Qué es</span>
+              <p class="project__description">
+                <strong>{item.title}.</strong> {item.description}
+              </p>
+            </div>
+            <div class="project__row project__row--result">
+              <span class="mono project__rowlabel">Resultado</span>
+              <p class="project__metric">
+                {item.metric}
+                <small>{item.metricLabel}</small>
+              </p>
+            </div>
+          </div>
+          <div class="project__foot">
+            {item.tags && (
+              <ul class="project__tags">
+                {item.tags.map((tag: string) => (
+                  <li class="project__tag">{tag}</li>
+                ))}
+              </ul>
+            )}
+            {item.href && (
+              <a class="project__link" href={item.href} target="_blank" rel="noopener noreferrer">
+                {item.linkLabel || 'Ver online'}
+              </a>
+            )}
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

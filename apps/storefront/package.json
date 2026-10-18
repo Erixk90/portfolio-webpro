@@ -1,0 +1,13 @@
+{
+  "name": "webpro-portfolio-storefront",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/fetch-cms.mjs && astro dev --port 3000",
+    "build": "node scripts/fetch-cms.mjs && astro build",
+    "preview": "astro preview --port 3000"
+  },
+  "devDependencies": {
+    "astro": "^4.16.0"
+  }
+}

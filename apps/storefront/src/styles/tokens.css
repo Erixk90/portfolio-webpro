@@ -1,0 +1,59 @@
+/* tokens.css — única fuente de variables. Identidad: vortex (cobalto + abismo + plata). */
+:root {
+  /* Color */
+  --color-bg: #06061c;
+  --color-surface: #0a0a26;
+  --color-text: #eef0f8;
+  --color-muted: #a2a8c8;
+  --color-accent: #2b2be0;
+  --color-accent-2: #7d7dff;
+  --color-on-accent: #ffffff;
+  --color-border: rgba(238, 240, 248, 0.14);
+  --color-card: #0e0e30;
+
+  /* Atmósfera — washes de cobalto y plata (nombres heredados, valores vortex) */
+  --color-wash-blue: #101142;
+  --color-wash-blue-2: #0d0f52;
+  --color-wash-beige: #14154a;
+  --color-wash-beige-2: #171845;
+  --color-beige-deep: #8e93c9;
+  --color-blue-soft: #9d9dff;
+
+  /* Tipografía */
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-display: "Sora", var(--font-sans);
+  --font-mono: ui-monospace, "Cascadia Mono", Consolas, monospace;
+  --text-display: clamp(38px, 4.6vw, 76px);
+  --text-h2: clamp(36px, 4.7vw, 72px);
+  --text-h3: clamp(26px, 2.4vw, 34px);
+  --text-body: 18px;
+  --leading-tight: 0.98;
+  --leading-body: 1.55;
+  --tracking-display: -0.045em;
+
+  /* Espaciado */
+  --gutter: clamp(16px, 4vw, 64px);
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 3rem;
+  --space-xl: clamp(96px, 13vw, 180px);
+  --space-2xl: clamp(140px, 18vw, 260px);
+
+  /* Formas */
+  --radius-sm: 12px;
+  --radius-md: 24px;
+  --radius-lg: 28px;
+  --radius-pill: 999px;
+  --content-max: 1180px;
+
+  /* Movimiento — transiciones nivel Apple */
+  --ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --ease-spring: cubic-bezier(0.3, 1.2, 0.35, 1);
+  --duration: 400ms;
+  --duration-slow: 1000ms;
+
+  /* Capas */
+  --z-header: 50;
+  --z-grain: 200;
+}

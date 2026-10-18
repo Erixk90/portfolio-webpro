@@ -1,0 +1,27 @@
+---
+interface Props {
+  brand: any;
+  footer: any;
+  year: number;
+}
+
+const { brand, footer, year } = Astro.props;
+const links = footer?.links || [];
+---
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div>
+      <p class="footer__brand">{brand?.name}</p>
+      <p class="footer__note">{footer?.note}</p>
+    </div>
+
+    <nav class="footer__links" aria-label="Navegación secundaria">
+      {links.map((link) => (
+        <a class="footer__link" href={link.href}>{link.label}</a>
+      ))}
+    </nav>
+
+    <p class="footer__year">© {year} {brand?.name}</p>
+  </div>
+</footer>

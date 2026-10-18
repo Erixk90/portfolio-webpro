@@ -1,0 +1,22 @@
+.aurora {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  pointer-events: none;
+  background: var(--color-bg);
+}
+
+.aurora::before {
+  content: "";
+  position: absolute;
+  inset: -25%;
+  filter: blur(80px);
+  opacity: 0.85;
+  background:
+    radial-gradient(42% 36% at 80% 76%, var(--color-wash-blue) 0%, transparent 70%),
+    radial-gradient(38% 30% at 50% 96%, var(--color-wash-beige) 0%, transparent 68%),
+    radial-gradient(46% 42% at 92% 28%, var(--color-wash-blue-2) 0%, transparent 72%),
+    radial-gradient(30% 28% at 10% 10%, var(--color-wash-beige-2) 0%, transparent 72%),
+    radial-gradient(24% 22% at 32% 42%, var(--color-wash-blue) 0%, transparent 70%);
+}

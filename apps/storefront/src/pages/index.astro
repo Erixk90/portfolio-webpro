@@ -1,0 +1,25 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Projects from '../components/Projects.astro';
+import Attack from '../components/Attack.astro';
+import About from '../components/About.astro';
+import Cta from '../components/Cta.astro';
+import { loadContent } from '../lib/cms.js';
+
+const content = await loadContent();
+---
+
+<Layout
+  content={content}
+  title={content.brand?.name ? `${content.brand.name} — ${content.brand.tagline}` : undefined}
+  description={
+    content.hero?.subtitle || content.brand?.tagline || 'Portafolio WebPro.'
+  }
+>
+  <Hero hero={content.hero} />
+  <Projects projects={content.projects} />
+  <Attack attack={content.attack} />
+  <About about={content.about} />
+  <Cta contact={content.contact} />
+</Layout>

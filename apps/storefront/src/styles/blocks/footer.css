@@ -1,0 +1,39 @@
+.footer {
+  padding: var(--space-lg) 0;
+  border-top: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.footer__brand {
+  font-weight: 700;
+}
+
+.footer__note {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+.footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+.footer__link:hover {
+  color: var(--color-text);
+}
+
+.footer__year {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}

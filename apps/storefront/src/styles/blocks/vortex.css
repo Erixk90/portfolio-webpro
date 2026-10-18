@@ -1,0 +1,16 @@
+/* vortex.css — canvas de partículas compartido entre secciones */
+.hero,
+.projects,
+.attack,
+.about,
+.cta {
+  position: relative;
+  overflow: hidden;
+}
+
+.vortex {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}

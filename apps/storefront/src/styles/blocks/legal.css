@@ -1,0 +1,66 @@
+/* legal.css — páginas legales (términos, privacidad, cookies) */
+.legal {
+  padding: var(--space-xl) 0 var(--space-lg);
+}
+
+.legal__head .section__eyebrow {
+  color: var(--color-accent-2);
+}
+
+.legal__version {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--color-muted);
+  margin-top: 8px;
+}
+
+.legal__body {
+  margin-top: clamp(40px, 6vw, 72px);
+  max-width: 68ch;
+}
+
+.legal__section {
+  padding-bottom: 28px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.legal__section:last-child {
+  border-bottom: 0;
+}
+
+.legal__section h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(20px, 2.4vw, 28px);
+  margin-bottom: 14px;
+}
+
+.legal__section p {
+  color: var(--color-muted);
+  margin-bottom: 12px;
+}
+
+.legal__section p:last-child {
+  margin-bottom: 0;
+}
+
+.legal__back {
+  display: inline-block;
+  margin-top: var(--space-lg);
+  color: var(--color-accent-2);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.legal__loglist {
+  list-style: none;
+  padding: 0;
+  color: var(--color-muted);
+}
+
+.legal__loglist li {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--color-border);
+}

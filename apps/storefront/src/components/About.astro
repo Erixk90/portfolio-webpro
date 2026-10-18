@@ -1,0 +1,28 @@
+---
+interface Props {
+  about: any;
+}
+
+const { about } = Astro.props;
+const stats = about?.stats || [];
+---
+
+<section class="about" id="quien-soy">
+  <canvas class="vortex" data-variant="flow" data-palette="99,82,255|67,67,255" aria-hidden="true"></canvas>
+  <div class="container about__inner reveal">
+    {about?.eyebrow && <p class="section__eyebrow">{about.eyebrow}</p>}
+    {about?.lede && <h2 class="about__lede" set:html={about.lede} />}
+    {about?.text && <p class="about__text">{about.text}</p>}
+
+    {stats.length > 0 && (
+      <ul class="about__stats" aria-label="Datos en números">
+        {stats.map((stat: any) => (
+          <li class="about__stat">
+            <p class="about__stat-value">{stat.value}</p>
+            <p class="about__stat-label">{stat.label}</p>
+          </li>
+        ))}
+      </ul>
+    )}
+  </div>
+</section>

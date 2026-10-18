@@ -1,0 +1,30 @@
+---
+import { buildWaMe } from '../lib/whatsapp.js';
+
+interface Props {
+  brand: any;
+  nav: any[];
+  contact: any;
+}
+
+const { brand, nav = [], contact } = Astro.props;
+const wa = buildWaMe(contact?.whatsappNumber, contact?.whatsappMessage);
+---
+
+<header class="header">
+  <div class="header__inner">
+    <a class="header__brand" href="#inicio">
+      <span class="header__dot" aria-hidden="true"></span>
+      {brand?.name}<em>.</em>
+    </a>
+
+    <nav class="header__nav" aria-label="Navegación principal">
+      {nav.map((item) => (
+        <a class="header__link" href={item.href}>{item.label}</a>
+      ))}
+      <a class="btn btn--ghost btn--sm header__cta" href={wa} data-whatsapp>Agendar llamada</a>
+    </nav>
+
+    <a class="btn btn--sm header__cta header__btn-mobile" href={wa} data-whatsapp>Llamar</a>
+  </div>
+</header>

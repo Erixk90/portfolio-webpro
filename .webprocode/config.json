@@ -1,0 +1,32 @@
+{
+  "project": "webpro-portfolio",
+  "brand": "WebPro",
+  "version": "1.0.0",
+  "language": "es",
+  "platform": "custom",
+  "stack": "astro",
+  "stackOptions": [
+    "astro",
+    "react",
+    "next",
+    "html-vanilla"
+  ],
+  "css": "vanilla-bem",
+  "created_at": "2026-10-16T22:19:31.934Z",
+  "webproCodeVersion": "1.0.0",
+  "webproCodeGateway": {
+    "url": "https://gateway.webpro.lat",
+    "auth": "token"
+  },
+  "cms": {
+    "type": "webprocode-cms",
+    "apiBase": "/api/cms",
+    "adminPath": "/cms/admin",
+    "connected": false
+  },
+  "contact": {
+    "whatsappNumber": "5491100000000",
+    "domain": "https://example.com"
+  },
+  "jira": null
+}

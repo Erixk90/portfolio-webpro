@@ -1,0 +1,35 @@
+---
+interface Props {
+  hero: any;
+}
+
+const { hero } = Astro.props;
+---
+
+<section class="hero" id="inicio">
+  <canvas class="vortex" data-variant="spiral" data-palette="43,43,224|67,67,255" aria-hidden="true"></canvas>
+  <div class="container hero__inner">
+    {hero?.kicker && <p class="mono hero__kicker">{hero.kicker}</p>}
+    <h1 class="hero__title" set:html={hero?.title} />
+    <p class="hero__subtitle">{hero?.subtitle}</p>
+
+    <div class="hero__actions">
+      {hero?.actions?.map(
+        (action: any) =>
+          action.href &&
+          action.label && (
+            <a
+              class:list={[
+                'btn',
+                action.variant === 'primary' ? 'btn' : 'btn--ghost',
+              ]}
+              href={action.href}
+              {...(action.href.startsWith('https://wa.me/') ? { 'data-whatsapp': true } : {})}
+            >
+              {action.label}
+            </a>
+          ),
+      )}
+    </div>
+  </div>
+</section>

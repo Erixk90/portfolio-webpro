@@ -1,0 +1,75 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+import '../styles/tokens.css';
+import '../styles/base.css';
+import '../styles/blocks/aurora.css';
+import '../styles/blocks/header.css';
+import '../styles/blocks/hero.css';
+import '../styles/blocks/projects.css';
+import '../styles/blocks/attack.css';
+import '../styles/blocks/about.css';
+import '../styles/blocks/cta.css';
+import '../styles/blocks/footer.css';
+import '../styles/blocks/vortex.css';
+import '../styles/blocks/legal.css';
+import '../styles/blocks/consent.css';
+
+interface Props {
+  content: any;
+  title?: string;
+  description?: string;
+}
+
+const { content, title, description } = Astro.props;
+const brandName = content?.brand?.name || 'WebPro';
+const pageTitle =
+  title || `${brandName} · Diseño de páginas web y portafolios en Barranquilla`;
+const pageDescription =
+  description ||
+  content?.brand?.tagline ||
+  'Diseño y desarrollo de páginas web rápidas en Barranquilla: portafolios, landings, catálogos y bots de WhatsApp. CSS vanilla y performance medido.';
+const domain = 'https://www.webpro.cat';
+const isNotFound = Astro.url.pathname.includes('404');
+const canonical = isNotFound ? `${domain}/` : new URL(Astro.url.pathname, domain).href;
+const year = new Date().getFullYear();
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <link rel="canonical" href={canonical} />
+    {isNotFound && <meta name="robots" content="noindex" />}
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#06061c" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body>
+    <div class="aurora" aria-hidden="true"></div>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+    <Header brand={content.brand} nav={content.nav} contact={content.contact} />
+
+    <main id="contenido">
+      <slot />
+    </main>
+
+    <Footer brand={content.brand} footer={content.footer} year={year} />
+
+    <script>
+      import '../scripts/reveal.js';
+      import '../scripts/vortex.js';
+      import '../scripts/consent.js';
+    </script>
+  </body>
+</html>

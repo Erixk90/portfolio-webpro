@@ -1,0 +1,12 @@
+# Cloudflare Pages — redirecciones por ruta
+#
+# El redirect de host (webpro.cat → www.webpro.cat) NO va aquí: Cloudflare
+# _redirects solo admite reglas por ruta, no por dominio.
+# Configúralo en el panel: Rules → Redirect Rules → una regla con
+#   If:  hostname equals "webpro.cat"
+#   Then: dynamic redirect a https://www.webpro.cat/  (301, preserve path+query)
+#
+# HTTPS (http → https) lo maneja el toggle: SSL/TLS → Edge Certificates → Always Use HTTPS.
+
+# Ruta de ejemplo (descomenta y ajusta si algún día renombras una página):
+# /webpro / 301

@@ -1,0 +1,44 @@
+# Dependencias
+node_modules/
+.pnpm-store/
+
+# Builds / cache
+dist/
+.astro/
+.cache/
+.output/
+.next/
+
+# Variables de entorno
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Base de datos (si usas el CMS)
+*.db
+*.db-journal
+
+# Snapshot del CMS (se regenera en cada build con scripts/fetch-cms.mjs)
+apps/storefront/src/data/cms.json
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Editor / SO
+.vscode/*
+.idea/
+.DS_Store
+Thumbs.db
+
+# Dependencias internas de OpenCode (los agentes SÍ se versionan)
+.opencode/node_modules/
+.opencode/package.json
+.opencode/package-lock.json
+.opencode/bun.lock
+
+# Temporales
+*.tmp
+*.bak

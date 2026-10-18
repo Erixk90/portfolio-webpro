@@ -1,0 +1,34 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { loadContent } from '../lib/cms.js';
+import { legalDocs } from '../lib/legal.js';
+
+const content = await loadContent();
+const doc = legalDocs.cookies;
+---
+
+<Layout content={content} title={`${doc.title} — ${content.brand?.name}`} description={doc.description}>
+  <article class="legal" id="contenido">
+    <div class="container legal__head">
+      <p class="section__eyebrow">{doc.eyebrow}</p>
+      <h1 class="section__title" set:html={doc.headline} />
+      <p class="legal__version">Versión {doc.version}</p>
+    </div>
+    <div class="container legal__body">
+      {doc.sections.map((s) => (
+        <section class="legal__section">
+          <h2>{s.h}</h2>
+          {s.p.map((t) => <p>{t}</p>)}
+        </section>
+      ))}
+      <section class="legal__section">
+        <h2>7. Tu registro en este navegador</h2>
+        <p>Esto es lo que guardaría (o ya guardó) este navegador sobre tu decisión:</p>
+        <div id="consent-log">
+          <p>No hay decisiones registradas en este navegador.</p>
+        </div>
+      </section>
+      <a class="legal__back" href="/">← Volver al inicio</a>
+    </div>
+  </article>
+</Layout>

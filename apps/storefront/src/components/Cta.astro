@@ -1,0 +1,34 @@
+---
+import { buildWaMe } from '../lib/whatsapp.js';
+
+interface Props {
+  contact: any;
+}
+
+const { contact } = Astro.props;
+const wa = buildWaMe(contact?.whatsappNumber, contact?.whatsappMessage);
+---
+
+<section class="cta" id="contacto">
+  <canvas class="vortex" data-variant="converge" data-palette="238,240,248|67,67,255" aria-hidden="true"></canvas>
+  <div class="container cta__inner">
+    {contact?.eyebrow && <p class="cta__eyebrow">{contact.eyebrow}</p>}
+    {contact?.title && <h2 class="cta__title" set:html={contact.title} />}
+    {contact?.text && <p class="cta__text">{contact.text}</p>}
+
+    <div class="cta__actions">
+      {wa && wa !== '#' && (
+        <a class="btn btn--primary" href={wa} data-whatsapp>
+          {contact?.whatsappLabel || 'WhatsApp'}
+        </a>
+      )}
+      {contact?.email && (
+        <a class="cta__link" href={`mailto:${contact.email}`}>
+          {contact.email}
+        </a>
+      )}
+    </div>
+
+    {contact?.note && <p class="cta__note">{contact.note}</p>}
+  </div>
+</section>

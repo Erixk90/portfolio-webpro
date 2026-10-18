@@ -1,0 +1,14 @@
+{
+  "name": "webpro-portfolio",
+  "private": true,
+  "type": "module",
+  "description": "WebPro — sitio generado con WebProCode (stack astro)",
+  "scripts": {
+    "dev": "pnpm --filter webpro-portfolio-storefront dev",
+    "build": "pnpm --filter webpro-portfolio-storefront build",
+    "preview": "pnpm --filter webpro-portfolio-storefront preview",
+    "budget": "node scripts/check-budget.mjs",
+    "deploy:cf": "npx wrangler@latest deploy",
+    "deploy:cf:dry": "npx wrangler@latest deploy --dry-run"
+  }
+}

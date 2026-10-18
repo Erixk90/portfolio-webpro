@@ -1,0 +1,22 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { loadContent } from '../lib/cms.js';
+
+const content = await loadContent();
+---
+
+<Layout content={content} title={`Página no encontrada — ${content.brand?.name}`} description="La página que buscas no existe o cambió de dirección. Vuelve al inicio de WebPro.">
+  <article class="legal" id="contenido">
+    <div class="container legal__head">
+      <p class="section__eyebrow">Error 404</p>
+      <h1 class="section__title">Esta página se perdió en el <em>vortex</em></h1>
+      <p class="legal__version">La dirección no existe o cambió de sitio.</p>
+    </div>
+    <div class="container legal__body">
+      <section class="legal__section">
+        <p>Puede que el enlace esté mal escrito o que la página se haya movido. Desde el inicio llegas a todo: proyectos, servicios y contacto directo.</p>
+      </section>
+      <a class="legal__back" href="/">← Volver al inicio</a>
+    </div>
+  </article>
+</Layout>

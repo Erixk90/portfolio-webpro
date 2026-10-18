@@ -1,0 +1,31 @@
+---
+interface Props {
+  attack: any;
+}
+
+const { attack } = Astro.props;
+const items = attack?.items || [];
+---
+
+<section class="attack" id="atacar">
+  <canvas class="vortex" data-variant="burst" data-palette="238,240,248|154,160,232" aria-hidden="true"></canvas>
+  <div class="container attack__inner">
+    <header>
+      {attack?.eyebrow && <p class="section__eyebrow">{attack.eyebrow}</p>}
+      {attack?.title && <h2 class="section__title">{attack.title}</h2>}
+      {attack?.intro && <p class="attack__intro">{attack.intro}</p>}
+    </header>
+
+    <ul class="attack__list">
+      {items.map((item: any, index: number) => (
+        <li class="attack__item reveal">
+          <span class="attack__number" aria-hidden="true">
+            {String(index + 1).padStart(2, '0')}
+          </span>
+          <h3 class="attack__problem">{item.problem}</h3>
+          <p class="attack__solution" set:html={item.solution} />
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
